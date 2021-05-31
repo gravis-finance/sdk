@@ -1,0 +1,64 @@
+{
+  "name": "@gravis.finance/sdk",
+  "license": "MIT",
+  "version": "1.0.7",
+  "description": "An SDK for building applications on top of Gravis Finance.",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "typings": "dist/cjs/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "repository": "https://github.com/gravis-official/old-sdk.git",
+  "keywords": [
+    "gravis.finance",
+    "ethereum"
+  ],
+  "scripts": {
+    "lint": "tsdx lint src test",
+    "lint:fix": "tsdx lint src test --fix",
+    "build": "rimraf dist && yarn build:esm & yarn build:cjs",
+    "build:esm": "tsc --module esnext --rootDir src --outDir dist/esm",
+    "build:cjs": "tsc --module commonjs --rootDir src --outDir dist/cjs",
+    "start": "tsdx watch",
+    "test": "tsdx test",
+    "prepublishOnly": "yarn build"
+  },
+  "dependencies": {
+    "@pancakeswap-libs/pancake-swap-core": "^0.1.0",
+    "big.js": "^5.2.2",
+    "decimal.js-light": "^2.5.0",
+    "jsbi": "^3.1.1",
+    "tiny-invariant": "^1.1.0",
+    "tiny-warning": "^1.0.3",
+    "toformat": "^2.0.0"
+  },
+  "peerDependencies": {
+    "@ethersproject/address": "^5.0.0-beta",
+    "@ethersproject/contracts": "^5.0.0-beta",
+    "@ethersproject/networks": "^5.0.0-beta",
+    "@ethersproject/providers": "^5.0.0-beta",
+    "@ethersproject/solidity": "^5.0.0-beta"
+  },
+  "devDependencies": {
+    "@ethersproject/address": "^5.0.2",
+    "@ethersproject/contracts": "^5.0.2",
+    "@ethersproject/networks": "^5.0.2",
+    "@ethersproject/providers": "^5.0.5",
+    "@ethersproject/solidity": "^5.0.2",
+    "@types/big.js": "^4.0.5",
+    "@types/jest": "^24.0.25",
+    "babel-plugin-transform-jsbi-to-bigint": "^1.3.1",
+    "rimraf": "^3.0.2",
+    "tsdx": "^0.12.3"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "semi": false,
+    "singleQuote": true
+  }
+}
