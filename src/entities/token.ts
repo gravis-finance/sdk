@@ -84,5 +84,19 @@ export const WETH = {
     18,
     'WHT',
     'Wrapped HT'
+  ),
+  [ChainId.MATICMAINNET]: new Token(
+    ChainId.MATICMAINNET,
+    '0x0000000000000000000000000000000000001010',
+    18,
+    'MATIC',
+    'MATIC'
+  ),
+  [ChainId.MATICTESTNET]: new Token(
+    ChainId.MATICTESTNET,
+    '0x0000000000000000000000000000000000001010',
+    18,
+    'MATIC',
+    'MATIC'
   )
 }
