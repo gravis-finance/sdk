@@ -1,7 +1,7 @@
 {
   "name": "@gravis.finance/sdk",
   "license": "MIT",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "An SDK for building applications on top of Gravis Finance.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -10,11 +10,8 @@
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/gravis-official/old-sdk.git",
-  "keywords": [
-    "gravis.finance",
-    "ethereum"
-  ],
+  "repository": "https://github.com/gravis-official/sdk.git",
+  "keywords": ["gravis.finance"],
   "scripts": {
     "lint": "tsdx lint src test",
     "lint:fix": "tsdx lint src test --fix",
