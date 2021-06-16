@@ -110,7 +110,7 @@ describe('entities', () => {
             tokens[1]
           )
           const inputAmount = new TokenAmount(tokens[1], decimalize(1, tokens[1].decimals))
-          const expectedOutputAmount = new TokenAmount(WETH, '1662497915624478906')
+          const expectedOutputAmount = new TokenAmount(WETH, '4662497915624478923')
           const trade = new Trade(route, inputAmount, TradeType.EXACT_INPUT)
           expect(trade.route).toEqual(route)
           expect(trade.tradeType).toEqual(TradeType.EXACT_INPUT)
@@ -167,7 +167,7 @@ describe('entities', () => {
             const trade = new Trade(route, outputAmount, TradeType.EXACT_INPUT)
 
             expect(trade.priceImpact.toSignificant(18)).toEqual(
-              tokens[1].decimals === 9 ? '0.300000099400899902' : '0.3000000000000001'
+              tokens[1].decimals === 9 ? '0.200000102200599899' : '0.3000000000000001'
             )
           }
         })
