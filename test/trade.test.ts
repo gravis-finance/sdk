@@ -1,7 +1,7 @@
 import JSBI from 'jsbi'
 import {
   ChainId,
-  ETHER,
+  BASE_CURRENCIES,
   CurrencyAmount,
   Pair,
   Percent,
@@ -14,6 +14,8 @@ import {
 } from '../src'
 
 describe('Trade', () => {
+  const chainId = ChainId.MAINNET
+  const ETHER = BASE_CURRENCIES[chainId]
   const token0 = new Token(ChainId.MAINNET, '0x0000000000000000000000000000000000000001', 18, 't0')
   const token1 = new Token(ChainId.MAINNET, '0x0000000000000000000000000000000000000002', 18, 't1')
   const token2 = new Token(ChainId.MAINNET, '0x0000000000000000000000000000000000000003', 18, 't2')
@@ -35,8 +37,9 @@ describe('Trade', () => {
   it('can be constructed with ETHER as input', () => {
     const trade = new Trade(
       new Route([pair_weth_0], ETHER),
-      CurrencyAmount.ether(JSBI.BigInt(100)),
-      TradeType.EXACT_INPUT
+      CurrencyAmount.ether(JSBI.BigInt(100), chainId),
+      TradeType.EXACT_INPUT,
+      chainId
     )
     expect(trade.inputAmount.currency).toEqual(ETHER)
     expect(trade.outputAmount.currency).toEqual(token0)
@@ -45,7 +48,8 @@ describe('Trade', () => {
     const trade = new Trade(
       new Route([pair_weth_0], ETHER, token0),
       new TokenAmount(token0, JSBI.BigInt(100)),
-      TradeType.EXACT_OUTPUT
+      TradeType.EXACT_OUTPUT,
+      chainId
     )
     expect(trade.inputAmount.currency).toEqual(ETHER)
     expect(trade.outputAmount.currency).toEqual(token0)
@@ -54,8 +58,9 @@ describe('Trade', () => {
   it('can be constructed with ETHER as output', () => {
     const trade = new Trade(
       new Route([pair_weth_0], token0, ETHER),
-      CurrencyAmount.ether(JSBI.BigInt(100)),
-      TradeType.EXACT_OUTPUT
+      CurrencyAmount.ether(JSBI.BigInt(100), chainId),
+      TradeType.EXACT_OUTPUT,
+      chainId
     )
     expect(trade.inputAmount.currency).toEqual(token0)
     expect(trade.outputAmount.currency).toEqual(ETHER)
@@ -64,7 +69,8 @@ describe('Trade', () => {
     const trade = new Trade(
       new Route([pair_weth_0], token0, ETHER),
       new TokenAmount(token0, JSBI.BigInt(100)),
-      TradeType.EXACT_INPUT
+      TradeType.EXACT_INPUT,
+      chainId
     )
     expect(trade.inputAmount.currency).toEqual(token0)
     expect(trade.outputAmount.currency).toEqual(ETHER)
@@ -150,7 +156,7 @@ describe('Trade', () => {
     it('works for ETHER currency input', () => {
       const result = Trade.bestTradeExactIn(
         [pair_weth_0, pair_0_1, pair_0_3, pair_1_3],
-        CurrencyAmount.ether(JSBI.BigInt(100)),
+        CurrencyAmount.ether(JSBI.BigInt(100), chainId),
         token3
       )
       expect(result).toHaveLength(2)
@@ -182,7 +188,8 @@ describe('Trade', () => {
       const exactIn = new Trade(
         new Route([pair_0_1, pair_1_2], token0),
         new TokenAmount(token0, JSBI.BigInt(100)),
-        TradeType.EXACT_INPUT
+        TradeType.EXACT_INPUT,
+        chainId
       )
       it('throws if less than 0', () => {
         expect(() => exactIn.maximumAmountIn(new Percent(JSBI.BigInt(-1), JSBI.BigInt(100)))).toThrow(
@@ -208,7 +215,8 @@ describe('Trade', () => {
       const exactOut = new Trade(
         new Route([pair_0_1, pair_1_2], token0),
         new TokenAmount(token2, JSBI.BigInt(100)),
-        TradeType.EXACT_OUTPUT
+        TradeType.EXACT_OUTPUT,
+        chainId
       )
 
       it('throws if less than 0', () => {
@@ -238,7 +246,8 @@ describe('Trade', () => {
       const exactIn = new Trade(
         new Route([pair_0_1, pair_1_2], token0),
         new TokenAmount(token0, JSBI.BigInt(100)),
-        TradeType.EXACT_INPUT
+        TradeType.EXACT_INPUT,
+        chainId
       )
       it('throws if less than 0', () => {
         expect(() => exactIn.minimumAmountOut(new Percent(JSBI.BigInt(-1), JSBI.BigInt(100)))).toThrow(
@@ -264,7 +273,8 @@ describe('Trade', () => {
       const exactOut = new Trade(
         new Route([pair_0_1, pair_1_2], token0),
         new TokenAmount(token2, JSBI.BigInt(100)),
-        TradeType.EXACT_OUTPUT
+        TradeType.EXACT_OUTPUT,
+        chainId
       )
 
       it('throws if less than 0', () => {
@@ -390,7 +400,7 @@ describe('Trade', () => {
       const result = Trade.bestTradeExactOut(
         [pair_weth_0, pair_0_1, pair_0_3, pair_1_3],
         token3,
-        CurrencyAmount.ether(JSBI.BigInt(100))
+        CurrencyAmount.ether(JSBI.BigInt(100), chainId)
       )
       expect(result).toHaveLength(2)
       expect(result[0].inputAmount.currency).toEqual(token3)
