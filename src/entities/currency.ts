@@ -33,7 +33,7 @@ export class Currency {
   }
 }
 
-const BASE_CURRENCIES: any = {
+export const BASE_CURRENCIES: any = {
   [ChainId.MAINNET]: new Currency(18, 'BNB', 'Binance'),
   [ChainId.BSCTESTNET]: new Currency(18, 'BNB', 'Binance'),
   [ChainId.HECOMAINNET]: new Currency(18, 'HT', 'Huobi'),
@@ -42,10 +42,13 @@ const BASE_CURRENCIES: any = {
   [ChainId.MATICTESTNET]: new Currency(18, 'MATIC', 'MATIC')
 }
 
+export const isEther = (currency: any) => {
+  return Object.values(BASE_CURRENCIES).includes(currency)
+}
+
 const params = new URLSearchParams(window.location.search)
 const networkId = params.get('network') as string
 const currentChainId = localStorage.getItem('chainId')
 const chainId: any = networkId || currentChainId
 
-const ETHER = (chainId && BASE_CURRENCIES[chainId]) || Currency.ETHER
-export { ETHER }
+export const ETHER = (chainId && BASE_CURRENCIES[chainId]) || Currency.ETHER
