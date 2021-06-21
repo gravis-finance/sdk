@@ -1,4 +1,4 @@
-import { Token, WETH, ChainId, Pair, TokenAmount, Route, ETHER } from '../src'
+import { Token, WETH, ChainId, Pair, TokenAmount, Route, BASE_CURRENCIES } from '../src'
 
 describe('Route', () => {
   const token0 = new Token(ChainId.MAINNET, '0x0000000000000000000000000000000000000001', 18, 't0')
@@ -25,6 +25,7 @@ describe('Route', () => {
   })
 
   it('supports ether input', () => {
+    const ETHER = BASE_CURRENCIES[ChainId.MAINNET]
     const route = new Route([pair_0_weth], ETHER)
     expect(route.pairs).toEqual([pair_0_weth])
     expect(route.input).toEqual(ETHER)
@@ -32,6 +33,7 @@ describe('Route', () => {
   })
 
   it('supports ether output', () => {
+    const ETHER = BASE_CURRENCIES[ChainId.MAINNET]
     const route = new Route([pair_0_weth], token0, ETHER)
     expect(route.pairs).toEqual([pair_0_weth])
     expect(route.input).toEqual(token0)
