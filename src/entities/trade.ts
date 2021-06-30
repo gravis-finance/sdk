@@ -2,7 +2,7 @@ import invariant from 'tiny-invariant'
 
 import { ChainId, ONE, TradeType, ZERO } from '../constants'
 import { sortedInsert } from '../utils'
-import { Currency, BASE_CURRENCIES, isEther } from './currency'
+import { Currency, isEther } from './currency'
 import { CurrencyAmount } from './fractions/currencyAmount'
 import { Fraction } from './fractions/fraction'
 import { Percent } from './fractions/percent'
@@ -89,13 +89,13 @@ export interface BestTradeOptions {
  */
 function wrappedAmount(currencyAmount: CurrencyAmount, chainId: ChainId): TokenAmount {
   if (currencyAmount instanceof TokenAmount) return currencyAmount
-  if (currencyAmount.currency === BASE_CURRENCIES[chainId]) return new TokenAmount(WETH[chainId], currencyAmount.raw)
+  if (isEther(currencyAmount.currency)) return new TokenAmount(WETH[chainId], currencyAmount.raw)
   invariant(false, 'CURRENCY')
 }
 
 function wrappedCurrency(currency: Currency, chainId: ChainId): Token {
   if (currency instanceof Token) return currency
-  if (currency === BASE_CURRENCIES[chainId]) return WETH[chainId]
+  if (isEther(currency)) return WETH[chainId]
   invariant(false, 'CURRENCY')
 }
 
