@@ -98,5 +98,19 @@ export const WETH = {
     18,
     'MATIC',
     'Wrapped MATIC'
+  ),
+  [ChainId.ETHEREUMMAINNET]: new Token(
+      ChainId.ETHEREUMMAINNET,
+      '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+      18,
+      'WETH',
+      'Wrapped ETH'
+  ),
+  [ChainId.ETHEREUMTESTNET]: new Token(
+      ChainId.ETHEREUMTESTNET,
+      '0xdf032bc4b9dc2782bb09352007d4c57b75160b15',
+      18,
+      'WETH',
+      'Wrapped ETH'
   )
 }
