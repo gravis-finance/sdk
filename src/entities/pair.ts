@@ -37,9 +37,9 @@ export class Pair {
         [tokens[0].address]: {
           ...PAIR_ADDRESS_CACHE?.[tokens[0].address],
           [tokens[1].address]: getCreate2Address(
-            FACTORY_ADDRESS[chainId],
+            FACTORY_ADDRESS[chainId] as string,
             keccak256(['bytes'], [pack(['address', 'address'], [tokens[0].address, tokens[1].address])]),
-            INIT_CODE_HASH[chainId]
+            INIT_CODE_HASH[chainId] as string
           )
         }
       }
