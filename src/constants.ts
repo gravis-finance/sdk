@@ -25,7 +25,18 @@ export enum Rounding {
   ROUND_UP
 }
 
-export const FACTORY_ADDRESS = {
+export interface FactoryProps {
+  56: string;
+  97: string;
+  128: string;
+  256: string;
+  137: string;
+  80001: string;
+  1?: string;
+  4?: string;
+}
+
+export const FACTORY_ADDRESS : FactoryProps = {
   [ChainId.MAINNET]: '0x4a3B76860C1b76f0403025485DE7bfa1F08C48fD',
   [ChainId.BSCTESTNET]: '0x5B7592997eF6Dc590cB104147E28B174923f72dE',
   [ChainId.HECOMAINNET]: '0x4a3B76860C1b76f0403025485DE7bfa1F08C48fD',
@@ -36,7 +47,7 @@ export const FACTORY_ADDRESS = {
   [ChainId.ETHEREUMTESTNET]: '0x0000000000000000000000000000000000001010'
 }
 
-export const INIT_CODE_HASH = {
+export const INIT_CODE_HASH : FactoryProps = {
   [ChainId.MAINNET]: '0xab974afc2f3181c75852feb42f2d73635ceccfa465d3cc3dd694960004e65fb3',
   [ChainId.BSCTESTNET]: '0xab974afc2f3181c75852feb42f2d73635ceccfa465d3cc3dd694960004e65fb3',
   [ChainId.HECOMAINNET]: '0xab974afc2f3181c75852feb42f2d73635ceccfa465d3cc3dd694960004e65fb3',
