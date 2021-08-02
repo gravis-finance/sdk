@@ -1,6 +1,5 @@
 stages:
     - build
-    - publish
 build:
     stage: build
     image: node:12-buster
@@ -11,14 +10,5 @@ build:
         - yarn add rimraf tsc
         - yarn install
         - yarn build
-    artifacts:
-        expire_in: 1 week
-        paths:
-            - dist
-npm:
-    stage: publish
-    tags: *b_runner
-    script:
         - npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
         - npm publish --access public
-    when: manual
