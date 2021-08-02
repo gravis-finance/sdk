@@ -1,0 +1,22 @@
+stages:
+    - build
+    - publish
+build:
+    stage: build
+    image: node:12-buster
+    tags: &b_runner 
+        - builder
+        - docker-executor
+    script:
+        - yarn install
+        - yarn build
+    artifacts:
+        expire_in: 1 week
+        paths:
+            - dist
+npm:
+    stage: publish
+    tags: *b_runner
+    script:
+        - npm publish --access public
+    when: manual
