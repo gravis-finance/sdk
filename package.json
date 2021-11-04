@@ -20,6 +20,7 @@
     "build:cjs": "tsc --module commonjs --rootDir src --outDir dist/cjs",
     "start": "tsdx watch",
     "test": "tsdx test",
+    "rimraf": "./node_modules/rimraf/bin.js",
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
