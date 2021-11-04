@@ -8,7 +8,6 @@ build:
         - builder
         - docker-executor
     script:
-        - yarn add rimraf tsc
         - yarn install
         - yarn build
     artifacts:
