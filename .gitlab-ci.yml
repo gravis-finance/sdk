@@ -20,6 +20,7 @@ npm:
     tags: *b_runner
     script:
         - npm i -g rimraf
+        - npm install typescript -g
         - npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
         - npm publish --access public
     when: manual
