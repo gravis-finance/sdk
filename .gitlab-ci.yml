@@ -19,6 +19,7 @@ npm:
     stage: publish
     tags: *b_runner
     script:
+        - npm i -g rimraf
         - npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
         - npm publish --access public
     when: manual
