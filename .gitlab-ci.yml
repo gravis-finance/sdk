@@ -9,6 +9,7 @@ build:
         - docker-executor
     script:
         - yarn install
+        - npm i -g rimraf
         - yarn build
     artifacts:
         expire_in: 1 week
