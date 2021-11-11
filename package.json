@@ -1,7 +1,7 @@
 {
   "name": "@gravis.finance/sdk",
   "license": "MIT",
-  "version": "1.0.15",
+  "version": "1.0.14",
   "description": "An SDK for building applications on top of Gravis Finance.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
