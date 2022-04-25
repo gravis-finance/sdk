@@ -11,7 +11,9 @@
     "dist"
   ],
   "repository": "https://github.com/gravis-official/sdk.git",
-  "keywords": ["gravis.finance"],
+  "keywords": [
+    "gravis.finance"
+  ],
   "scripts": {
     "lint": "tsdx lint src test",
     "lint:fix": "tsdx lint src test --fix",

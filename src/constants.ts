@@ -11,32 +11,34 @@ export enum ChainId {
   MATICMAINNET = 137,
   MATICTESTNET = 80001,
   ETHEREUMMAINNET = 1,
-  ETHEREUMTESTNET = 4
+  ETHEREUMTESTNET = 4,
+  AURORAMAINNET = 1313161554,
+  AURORATESTNET = 1313161555,
 }
 
 export enum TradeType {
   EXACT_INPUT,
-  EXACT_OUTPUT
+  EXACT_OUTPUT,
 }
 
 export enum Rounding {
   ROUND_DOWN,
   ROUND_HALF_UP,
-  ROUND_UP
+  ROUND_UP,
 }
 
 export interface FactoryProps {
-  56: string;
-  97: string;
-  128: string;
-  256: string;
-  137: string;
-  80001: string;
-  1?: string;
-  4?: string;
+  56: string
+  97: string
+  128: string
+  256: string
+  137: string
+  80001: string
+  1?: string
+  4?: string
 }
 
-export const FACTORY_ADDRESS : FactoryProps = {
+export const FACTORY_ADDRESS: FactoryProps = {
   [ChainId.MAINNET]: '0x4a3B76860C1b76f0403025485DE7bfa1F08C48fD',
   [ChainId.BSCTESTNET]: '0x5B7592997eF6Dc590cB104147E28B174923f72dE',
   [ChainId.HECOMAINNET]: '0x4a3B76860C1b76f0403025485DE7bfa1F08C48fD',
@@ -44,10 +46,10 @@ export const FACTORY_ADDRESS : FactoryProps = {
   [ChainId.MATICMAINNET]: '0x17c1D25D5a2d833c266639De5Fbe8896bDBeB234',
   [ChainId.MATICTESTNET]: '0x17c1D25D5a2d833c266639De5Fbe8896bDBeB234',
   [ChainId.ETHEREUMMAINNET]: '0x0000000000000000000000000000000000001010',
-  [ChainId.ETHEREUMTESTNET]: '0x0000000000000000000000000000000000001010'
+  [ChainId.ETHEREUMTESTNET]: '0x0000000000000000000000000000000000001010',
 }
 
-export const INIT_CODE_HASH : FactoryProps = {
+export const INIT_CODE_HASH: FactoryProps = {
   [ChainId.MAINNET]: '0xab974afc2f3181c75852feb42f2d73635ceccfa465d3cc3dd694960004e65fb3',
   [ChainId.BSCTESTNET]: '0xab974afc2f3181c75852feb42f2d73635ceccfa465d3cc3dd694960004e65fb3',
   [ChainId.HECOMAINNET]: '0xab974afc2f3181c75852feb42f2d73635ceccfa465d3cc3dd694960004e65fb3',
@@ -55,7 +57,7 @@ export const INIT_CODE_HASH : FactoryProps = {
   [ChainId.MATICMAINNET]: '0x4d103b6c779c43f69ce77721bf10af0e9351d8676f0899ab80ea833e6d6db973',
   [ChainId.MATICTESTNET]: '0x4d103b6c779c43f69ce77721bf10af0e9351d8676f0899ab80ea833e6d6db973',
   [ChainId.ETHEREUMMAINNET]: '0x0000000000000000000000000000000000001010',
-  [ChainId.ETHEREUMTESTNET]: '0x0000000000000000000000000000000000001010'
+  [ChainId.ETHEREUMTESTNET]: '0x0000000000000000000000000000000000001010',
 }
 
 export const MINIMUM_LIQUIDITY = JSBI.BigInt(1000)
@@ -73,10 +75,10 @@ export const _1000 = JSBI.BigInt(1000)
 
 export enum SolidityType {
   uint8 = 'uint8',
-  uint256 = 'uint256'
+  uint256 = 'uint256',
 }
 
 export const SOLIDITY_TYPE_MAXIMA = {
   [SolidityType.uint8]: JSBI.BigInt('0xff'),
-  [SolidityType.uint256]: JSBI.BigInt('0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff')
+  [SolidityType.uint256]: JSBI.BigInt('0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff'),
 }

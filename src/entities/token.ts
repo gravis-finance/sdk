@@ -100,17 +100,31 @@ export const WETH = {
     'Wrapped MATIC'
   ),
   [ChainId.ETHEREUMMAINNET]: new Token(
-      ChainId.ETHEREUMMAINNET,
-      '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
-      18,
-      'WETH',
-      'Wrapped ETH'
+    ChainId.ETHEREUMMAINNET,
+    '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+    18,
+    'WETH',
+    'Wrapped ETH'
   ),
   [ChainId.ETHEREUMTESTNET]: new Token(
-      ChainId.ETHEREUMTESTNET,
-      '0xdf032bc4b9dc2782bb09352007d4c57b75160b15',
-      18,
-      'WETH',
-      'Wrapped ETH'
+    ChainId.ETHEREUMTESTNET,
+    '0xdf032bc4b9dc2782bb09352007d4c57b75160b15',
+    18,
+    'WETH',
+    'Wrapped ETH'
+  ),
+  [ChainId.AURORAMAINNET]: new Token(
+    ChainId.AURORAMAINNET,
+    '0xC9BdeEd33CD01541e1eeD10f90519d2C06Fe3feB',
+    18,
+    'WETH',
+    'Wrapped ETH'
+  ),
+  [ChainId.AURORATESTNET]: new Token(
+    ChainId.AURORATESTNET,
+    '0x8886E7A8883e9A40b30Bd4E16e0e25C2C3f29Cd8',
+    18,
+    'WETH',
+    'Wrapped ETH'
   )
 }

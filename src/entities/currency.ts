@@ -41,7 +41,9 @@ export const BASE_CURRENCIES: any = {
   [ChainId.MATICMAINNET]: new Currency(18, 'MATIC', 'MATIC'),
   [ChainId.MATICTESTNET]: new Currency(18, 'MATIC', 'MATIC'),
   [ChainId.ETHEREUMMAINNET]: new Currency(18, 'ETH', 'Ethereum'),
-  [ChainId.ETHEREUMTESTNET]: new Currency(18, 'ETH', 'Ethereum')
+  [ChainId.ETHEREUMTESTNET]: new Currency(18, 'ETH', 'Ethereum'),
+  [ChainId.AURORAMAINNET]: new Currency(18, 'ETH', 'Ethereum'),
+  [ChainId.AURORATESTNET]: new Currency(18, 'ETH', 'Ethereum')
 }
 
 export const isEther = (currency: any) => {
