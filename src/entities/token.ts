@@ -13,7 +13,9 @@ export class Token extends Currency {
   public constructor(chainId: ChainId, address: string, decimals: number, symbol?: string, name?: string) {
     super(decimals, symbol, name)
     this.chainId = chainId
-    this.address = validateAndParseAddress(address)
+    this.address = [ChainId.NEARMAINNET, ChainId.NEARTESTNET].includes(chainId)
+      ? address
+      : validateAndParseAddress(address)
   }
 
   /**
@@ -126,5 +128,7 @@ export const WETH = {
     18,
     'WETH',
     'Wrapped ETH'
-  )
+  ),
+  [ChainId.NEARMAINNET]: new Token(ChainId.NEARMAINNET, 'near', 18, 'NEAR', 'Near'),
+  [ChainId.NEARTESTNET]: new Token(ChainId.NEARTESTNET, 'near', 18, 'NEAR', 'Near')
 }
