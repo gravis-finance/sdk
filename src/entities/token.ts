@@ -3,6 +3,13 @@ import { ChainId } from '../constants'
 import { validateAndParseAddress } from '../utils'
 import { Currency } from './currency'
 
+const IGNORE_VALIDATION_CHAINS = [
+  ChainId.NEARMAINNET,
+  ChainId.NEARTESTNET,
+  ChainId.SOLANAMAINNET,
+  ChainId.SOLANATESTNET
+]
+
 /**
  * Represents an ERC20 token with a unique address and some metadata.
  */
@@ -13,9 +20,7 @@ export class Token extends Currency {
   public constructor(chainId: ChainId, address: string, decimals: number, symbol?: string, name?: string) {
     super(decimals, symbol, name)
     this.chainId = chainId
-    this.address = [ChainId.NEARMAINNET, ChainId.NEARTESTNET].includes(chainId)
-      ? address
-      : validateAndParseAddress(address)
+    this.address = IGNORE_VALIDATION_CHAINS.includes(chainId) ? address : validateAndParseAddress(address)
   }
 
   /**
