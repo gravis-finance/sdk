@@ -130,5 +130,19 @@ export const WETH = {
     'Wrapped ETH'
   ),
   [ChainId.NEARMAINNET]: new Token(ChainId.NEARMAINNET, 'near', 18, 'NEAR', 'Near'),
-  [ChainId.NEARTESTNET]: new Token(ChainId.NEARTESTNET, 'near', 18, 'NEAR', 'Near')
+  [ChainId.NEARTESTNET]: new Token(ChainId.NEARTESTNET, 'near', 18, 'NEAR', 'Near'),
+  [ChainId.SOLANAMAINNET]: new Token(
+    ChainId.SOLANAMAINNET,
+    'So11111111111111111111111111111111111111112',
+    9,
+    'SOL',
+    'Wrapped SOL'
+  ),
+  [ChainId.SOLANATESTNET]: new Token(
+    ChainId.SOLANATESTNET,
+    'So11111111111111111111111111111111111111112',
+    9,
+    'SOL',
+    'Wrapped SOL'
+  )
 }
