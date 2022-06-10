@@ -46,8 +46,8 @@ export const BASE_CURRENCIES: any = {
   [ChainId.AURORATESTNET]: new Currency(18, 'ETH', 'Ethereum'),
   [ChainId.NEARMAINNET]: new Currency(18, 'NEAR', 'Near'),
   [ChainId.NEARTESTNET]: new Currency(18, 'NEAR', 'Near'),
-  [ChainId.SOLANAMAINNET]: new Currency(18, 'NEAR', 'Near'),
-  [ChainId.SOLANATESTNET]: new Currency(18, 'SOL', 'Solana')
+  [ChainId.SOLANAMAINNET]: new Currency(9, 'NEAR', 'Near'),
+  [ChainId.SOLANATESTNET]: new Currency(9, 'SOL', 'Solana')
 }
 
 export const isEther = (currency: any) => {
